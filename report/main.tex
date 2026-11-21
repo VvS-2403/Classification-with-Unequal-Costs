@@ -3,9 +3,11 @@
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs,graphicx}
 \usepackage[font=small,labelfont=bf]{caption}
-\usepackage[hidelinks]{hyperref}
 \usepackage{enumitem}
 \usepackage[section]{placeins}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+
 \setlist{itemsep=1pt,topsep=3pt}
 \input{notation}
 \newcommand{\cFP}{c_{FP}}   % used inside the generated Task 2 tables
@@ -20,19 +22,20 @@
 \begin{document}
 
 \begin{center}
-{\LARGE\bfseries MAC 312 -- Project 4}\\[4pt]
-{\Large Classification with Unequal Error Costs and Rejection}\\[10pt]
+{\large\bfseries MAC F312: Semester Project \textbar{} Group 4}\\[6pt]
+{\LARGE\bfseries Classification with Unequal Error Costs and Rejection}\\[10pt]
 \footnotesize
 \begin{tabular}{clll}
 \toprule
-& Name & ID No. & Code owned (in \code{project4/}) \\
+& Name & ID No. \\
 \midrule
-1 & Mohammad Zaid Agha        & 2024ADPS0840G & \code{t1\_expected\_loss.py}, \code{task4\_prior\_shift.py} \\
-2 & Nitin Sureshkumar         & 2024ADPS0881G & \code{models/logistic.py}, \code{task2\_cost\_sweep.py} \\
-3 & Tanishk Milind Tasgaonkar & 2024ADPS0874G & \code{models/gaussian.py}, \code{c2\_gaussian.py} \\
-4 & Saatwik Tiwari            & 2024ADPS0878G & \code{task5\_inspection.py} \\
-5 & Lakshya Satya             & 2024ADPS0828G & \code{calibration.py}, \code{prior\_shift.py}, \code{task3\_calibration.py} \\
-6 & Vismay V Shanbhag         & 2024ADPS0876  & \code{data.py}, \code{decision.py}, \code{metrics.py}, \code{analytic.py} \\
+1 & Lakshya Satya             & 2024ADPS0828G \\
+2 & Mohammad Zaid Agha        & 2024ADPS0840G \\
+3 & Nitin Sureshkumar         & 2024ADPS0881G  \\
+4 & Tanishk Milind Tasgaonkar & 2024ADPS0874G \\
+5 & Saatwik Tiwari            & 2024ADPS0878G \\
+
+6 & Vismay V Shanbhag         & 2024ADPS0876G   \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -47,6 +50,7 @@
 \input{sections/8_inspection}    % Members 6 and 4
 \input{sections/9_conclusion}
 
+\nocite{spambase}
 \bibliographystyle{plain}
 \bibliography{references}
 \end{document}
