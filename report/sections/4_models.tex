@@ -3,7 +3,7 @@
 The rule of Section~\ref{sec:rule} needs a spam probability $\post$ for every email, so we built two
 kinds of model: one that models $\post$ directly, and one that models what each class looks like.
 
-\subsection{Logistic regression (Member~2)}
+\subsection{Logistic regression}
 \label{sec:logistic}
 \textbf{Code:} \code{models/logistic.py}.
 
@@ -13,7 +13,7 @@ the penalty, chosen on validation log-loss from $10^{-2}$ to $10^{3}$, keeps the
 when the classes are separable. The tests check that the gradient is zero at the solution, that the
 fit matches scikit-learn's, and that it recovers the true weights from a large simulated sample.
 
-\subsection{Gaussian classifiers (Member~3)}
+\subsection{Gaussian classifiers }
 \label{sec:gaussian}
 \textbf{Code:} \code{models/gaussian.py}, \code{experiments/c2\_gaussian.py}.
 
