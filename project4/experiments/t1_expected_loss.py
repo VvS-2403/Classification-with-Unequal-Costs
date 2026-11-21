@@ -4,7 +4,8 @@ Member 1 (T1, Section 2).  No data or models: the curves follow from the loss
 matrix alone, R(0|x) = c_fn p, R(1|x) = c_fp (1-p), R(r|x) = c_I.
 
 Outputs
-  figures/t1_expected_loss.{pdf,png}   left: c_I below c* (inspect band); right: c_I above c* (no band)
+  figures/t1_expected_loss.{pdf,png}   left: our costs (c_fp=10, c_fn=1); right: equal costs
+                                       (c_fp=c_fn=1, Chow's rule); both at c_I = C_INSP
 """
 import numpy as np
 
@@ -13,7 +14,7 @@ from project4.decision import LossMatrix, expected_losses, thresholds
 from project4.plotting import COLORS, INK, INK_MUTED, apply_style, plt, save
 
 # ---- configuration --------------------------------------------------------
-C_INSP_NO_BAND = 1.0                # above c* = c_fp c_fn / (c_fp + c_fn) = 10/11
+EQUAL_COST = 1.0                    # sanity-check panel: c_fp = c_fn, so t* = 1/2
 P_GRID = np.linspace(0.0, 1.0, 1001)
 LINE_LABELS = ("deliver: $c_{FN}\\,p$", "spam folder: $c_{FP}(1-p)$", "inspect: $c_I$")
 REGION_ALPHA = 0.07
@@ -43,24 +44,25 @@ def panel(ax, L: LossMatrix):
     ax.set_xlim(0, 1)
     ax.set_xlabel("$p = P(y=1 \\mid x)$")
     band = "inspect band" if L.has_reject_band else "no inspect band"
-    ax.set_title(rf"$c_I={L.c_insp:g}$ ({band}, $c^\ast={L.critical_c_insp:.3f}$)", loc="left")
+    ax.set_title(rf"$c_{{FP}}={L.c_fp:g}$, $c_{{FN}}={L.c_fn:g}$ ({band}, $c^\ast={L.critical_c_insp:.3f}$)",
+                 loc="left")
 
 
 def main():
     apply_style()
     with_band = LossMatrix(C_FP, C_FN, C_INSP)
-    no_band = LossMatrix(C_FP, C_FN, C_INSP_NO_BAND)
+    equal = LossMatrix(EQUAL_COST, EQUAL_COST, C_INSP)
     fig, axes = plt.subplots(1, 2, figsize=(7.0, 2.8), sharey=True)
     panel(axes[0], with_band)
-    panel(axes[1], no_band)
+    panel(axes[1], equal)
     axes[0].set_ylabel("Posterior expected loss")
     handles, labels = axes[0].get_legend_handles_labels()
-    fig.suptitle(rf"$c_{{FP}}={C_FP:g}$, $c_{{FN}}={C_FN:g}$",
+    fig.suptitle(rf"$c_I={C_INSP:g}$",
                  x=0.02, ha="left", fontsize=9, color=INK_MUTED)
     fig.tight_layout(rect=(0, 0.1, 1, 1))
     fig.legend(handles, labels, loc="lower center", ncol=4, fontsize=8, bbox_to_anchor=(0.5, 0.0))
     save(fig, FIGURES_DIR / "t1_expected_loss")
-    for L in (with_band, no_band):
+    for L in (with_band, equal):
         print(f"  c_I={L.c_insp:g}: thresholds={tuple(round(t, 4) for t in thresholds(L))}, "
               f"band={L.has_reject_band}")
 
