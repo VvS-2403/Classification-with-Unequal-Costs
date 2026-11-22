@@ -21,3 +21,10 @@ report/*.fdb_latexmk
 .DS_Store
 Thumbs.db
 report/main.pdf
+slides/*.aux
+slides/*.log
+slides/*.nav
+slides/*.out
+slides/*.snm
+slides/*.toc
+slides/*.vrb

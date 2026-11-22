@@ -17,6 +17,9 @@ The report in `report/` includes them directly. Build it with
 `cd report && pdflatex main && bibtex main && pdflatex main && pdflatex main`,
 or import the repo into Overleaf with its GitHub sync.
 
+The 15-slide presentation is [`slides/slides.pdf`](slides/slides.pdf). Its source `slides/slides.tex`
+uses the same figures; build it with `cd slides && pdflatex slides && pdflatex slides`.
+
 
 
 ## Layout and owners
