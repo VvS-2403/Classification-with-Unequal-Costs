@@ -1,5 +1,12 @@
 """T6 figures and table from the closed-form 1-D Gaussian model (no sampling).
 
+Model: one feature x per email. Real: x ~ N(-mu, 1); spam: x ~ N(+mu, 1); P(spam) = pi1
+(mu = 1, pi1 = 0.4). Bayes' rule gives p(x) = sigmoid(2*mu*x + lambda) with
+lambda = ln(pi1 / (1 - pi1)), which is increasing in x. So each threshold on p maps to a
+cut-point on x, and every action rate, accuracy and expected cost is a difference of
+normal CDFs. Nothing is fitted and nothing is sampled, so the numbers are exact and
+serve as the reference that the learned models are compared against.
+
 Outputs
   figures/t6_accuracy_vs_cost.{pdf,png}   accuracy and cost of two-action rules vs threshold
   figures/t6_risk_reject_vs_cinsp.{pdf,png} Bayes risk and rejection rate vs c_I

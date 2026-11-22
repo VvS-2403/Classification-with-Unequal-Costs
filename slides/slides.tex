@@ -111,9 +111,18 @@ the average cost per held-out email.}}
 \end{itemize}
 \end{column}
 \end{columns}
-\vspace{1em}
+\vspace{0.8em}
 \centering
-\fbox{\parbox{0.85\textwidth}{\centering\texttt{python -m project4.run\_all} regenerates all 26 figures and 36 tables in under a minute. 101 unit tests.}}
+\begin{tabular}{lcc}
+\toprule
+Loss matrix $L$ & real ($y=0$) & spam ($y=1$)\\
+\midrule
+deliver & $0$ & $\cfn$\\
+spam folder & $\cfp$ & $0$\\
+inspect & $\ci$ & $\ci$\\
+\bottomrule
+\end{tabular}\\[0.6em]
+{\small Parameters: $\cfp=10$, \ $\cfn=1$, \ $\ci=0.3$}
 \end{frame}
 
 % =================================================================== 4
@@ -318,7 +327,7 @@ Resample the test set to a new spam rate $\pi_1'$; decide with uncorrected, corr
 \begin{columns}[T]
 \begin{column}{0.44\textwidth}
 \footnotesize
-Real email $x\sim N(-1,1)$, spam $x\sim N(+1,1)$, 40\% spam $\Rightarrow p=\sigma(2x+\lambda)$; every rate is a normal CDF: \key{no fitting, no noise}.\\[3pt]
+Real $x\sim N(-1,1)$, spam $x\sim N(+1,1)$, 40\% spam $\Rightarrow p=\sigma(2x+\lambda)$. Thresholds on $p$ become cuts on $x$, so every rate is a normal CDF: \key{no fitting, no noise}.\\[3pt]
 \setlength{\tabcolsep}{3.5pt}
 \begin{tabular}{lccc}
 \toprule
