@@ -19,8 +19,7 @@ resamples a test set within each class to a new spam rate, which Section~\ref{se
 
 \paragraph{Decisions and scoring.}
 \code{decision.py} turns any loss matrix into the thresholds derived in the next section and applies
-them, either to probabilities or directly to log-odds (which avoids rounding a confident score to
-exactly $0$ or $1$). A unit test compares it with a brute-force search over the three actions on
+them to probabilities. A unit test compares it with a brute-force search over the three actions on
 $10{,}000$ random posteriors and loss matrices. \code{metrics.py} computes the realized loss, accuracy,
 inspection rate and confusion matrices with an inspect column. \code{run\_all.py} regenerates every
 figure and table in this report in under a minute, and 101 unit tests cover the shared code and the

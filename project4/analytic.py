@@ -13,7 +13,7 @@ if x >= tau1 and inspects in between.  With Phi the standard normal CDF:
     P(spam    | y=0) = Phi(-tau1 - mu)         P(spam    | y=1) = Phi(mu - tau1)
     P(inspect | y=k) = 1 - the two above
 
-Every quantity in the report's Section 7 (accuracy, realized cost, rejection
+Every quantity in the report's Section 8 (accuracy, realized cost, rejection
 rate, Bayes risk as a function of c_I) is a closed-form combination of these.
 These functions are what C6 overlays on the synthetic-data experiments.
 """
